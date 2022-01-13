@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		41859D86752F68CA6660DFCB /* libPods-Playing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDF12FDCB97431753166515 /* libPods-Playing.a */; };
 		C9A96BBD278ED48800493684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A96BBC278ED48800493684 /* AppDelegate.swift */; };
-		C9A96BBF278ED48800493684 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A96BBE278ED48800493684 /* SceneDelegate.swift */; };
 		C9A96BC1278ED48800493684 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A96BC0278ED48800493684 /* ViewController.swift */; };
 		C9A96BC4278ED48800493684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9A96BC2278ED48800493684 /* Main.storyboard */; };
 		C9A96BC6278ED48B00493684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A96BC5278ED48B00493684 /* Assets.xcassets */; };
 		C9A96BC9278ED48B00493684 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9A96BC7278ED48B00493684 /* LaunchScreen.storyboard */; };
+		C9A96C2D278FBC3F00493684 /* BoostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A96C2C278FBC3F00493684 /* BoostDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,12 +21,13 @@
 		7EFB4C33983756753F9D3836 /* Pods-Playing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Playing.release.xcconfig"; path = "Target Support Files/Pods-Playing/Pods-Playing.release.xcconfig"; sourceTree = "<group>"; };
 		C9A96BB9278ED48800493684 /* Playing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A96BBC278ED48800493684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9A96BBE278ED48800493684 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C9A96BC0278ED48800493684 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9A96BC3278ED48800493684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9A96BC5278ED48B00493684 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9A96BC8278ED48B00493684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9A96BCA278ED48B00493684 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9A96C2C278FBC3F00493684 /* BoostDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostDelegate.swift; sourceTree = "<group>"; };
+		C9A96C30278FBF1F00493684 /* Playing-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Playing-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFDF12FDCB97431753166515 /* libPods-Playing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Playing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,12 +73,13 @@
 			isa = PBXGroup;
 			children = (
 				C9A96BBC278ED48800493684 /* AppDelegate.swift */,
-				C9A96BBE278ED48800493684 /* SceneDelegate.swift */,
+				C9A96C2C278FBC3F00493684 /* BoostDelegate.swift */,
 				C9A96BC0278ED48800493684 /* ViewController.swift */,
 				C9A96BC2278ED48800493684 /* Main.storyboard */,
 				C9A96BC5278ED48B00493684 /* Assets.xcassets */,
 				C9A96BC7278ED48B00493684 /* LaunchScreen.storyboard */,
 				C9A96BCA278ED48B00493684 /* Info.plist */,
+				C9A96C30278FBF1F00493684 /* Playing-Bridging-Header.h */,
 			);
 			path = Playing;
 			sourceTree = "<group>";
@@ -88,7 +90,6 @@
 				20FACB9C473DD94C14D5E23A /* Pods-Playing.debug.xcconfig */,
 				7EFB4C33983756753F9D3836 /* Pods-Playing.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -127,6 +128,7 @@
 				TargetAttributes = {
 					C9A96BB8278ED48800493684 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -218,9 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A96C2D278FBC3F00493684 /* BoostDelegate.swift in Sources */,
 				C9A96BC1278ED48800493684 /* ViewController.swift in Sources */,
 				C9A96BBD278ED48800493684 /* AppDelegate.swift in Sources */,
-				C9A96BBF278ED48800493684 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -352,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -368,6 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -385,6 +388,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.binaryparadise.Playing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Playing/Playing-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -396,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -413,6 +419,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.binaryparadise.Playing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Playing/Playing-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
