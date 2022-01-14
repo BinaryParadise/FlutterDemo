@@ -15,6 +15,7 @@ import Flutter
           return nav
       }()
             
+      // 配置路由跳转代理
       let delegate = PlayingBoostDelegate(nav: window.rootViewController as? UINavigationController)
       FlutterBoost.instance().setup(application, delegate: delegate) { engine in
       }

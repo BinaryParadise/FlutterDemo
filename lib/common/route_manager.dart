@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_boost/flutter_boost.dart';
-import 'package:flutter_demo/demo/native_demo.dart';
+import 'package:flutter_demo/demo/navigator_demo.dart';
 import 'package:flutter_demo/main.dart';
 
 final RouteManager routeManager = RouteManager._instance();
@@ -31,10 +31,14 @@ class RouteManager {
     FlutterBoostRouteFactory? routeFunc;
     if (isAnonymousRoute(settings)) {
       routeFunc = _anonymousRoutes[settings.name];
+      if (uniqueId != null) {//注意isFlutterPage的实现
+        _anonymousRoutes.remove(settings.name);
+      }
     } else {
       routeFunc = _routes[settings.name];
     }
     if (routeFunc == null) {
+      print('找不到路由映射: ${settings.name}');
       return null;
     }
     return routeFunc(settings, uniqueId);
@@ -52,6 +56,7 @@ extension RouteExtension on BoostNavigator {
           settings: settings, builder: (context) => widget);
     };
     var name = 'anonymous_route_${func.hashCode}';
+    print('打开匿名路由: $name');
     routeManager._anonymousRoutes[name] = func;
     return push(name,
         arguments: arguments, withContainer: withContainer, opaque: opaque);

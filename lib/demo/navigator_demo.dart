@@ -23,6 +23,12 @@ class NavigatorDemo extends StatelessWidget {
               BoostNavigator.instance.push('flutter://middle');
             },
             child: Text('跳转Flutter'),
+          ),
+          TextButton(
+            onPressed: () {
+              BoostNavigator.instance.pushWidget(NavigatorDemo());
+            },
+            child: Text('跳转匿名路由'),
           )
         ],
       ),

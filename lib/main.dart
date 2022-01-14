@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_demo/demo/expanded_demo.dart';
 import 'package:flutter_demo/demo/gridview_demo.dart';
-import 'package:flutter_demo/demo/native_demo.dart';
+import 'package:flutter_demo/demo/navigator_demo.dart';
 import 'package:flutter_demo/demo/tabbar_pageview.dart';
 
 import 'package:flutter_engine/flutter_engine.dart';
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   Widget appBuilder(Widget home) {
     return MaterialApp(
       home: home,
-      navigatorObservers: [MyRouteObserver()],
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xFFF2F4F6),
