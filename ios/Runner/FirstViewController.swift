@@ -23,11 +23,21 @@ class FirstViewController: UIViewController {
         view.addSubview(btn1)
         btn1.addTarget(self, action: #selector(openFlutter(sender:)), for: .touchUpInside)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 
     @IBAction func openFlutter(sender: Any) {
         //let rootVC = FBFlutterViewContainer(project: nil, initialRoute: "/", nibName: nil, bundle: nil)
         //rootVC.setName("/", uniqueId: "0", params: nil, opaque: true)
-        FlutterBoost.instance().open("flutter://home", arguments: [:]) { finished in
+        FlutterBoost.instance().open("flutter://home", arguments: ["back": true]) { finished in
             
         }
     }

@@ -16,7 +16,10 @@ class RouteManager {
     },
     'flutter://middle': (settings, uniqueId) {
       return CupertinoPageRoute(
-          settings: settings, builder: (context) => NavigatorDemo());
+          settings: settings,
+          builder: (context) => NavigatorDemo(
+                data: settings.arguments as Map<String, dynamic>,
+              ));
     }
   };
   Map<String, FlutterBoostRouteFactory> _anonymousRoutes = {};
@@ -31,7 +34,8 @@ class RouteManager {
     FlutterBoostRouteFactory? routeFunc;
     if (isAnonymousRoute(settings)) {
       routeFunc = _anonymousRoutes[settings.name];
-      if (uniqueId != null) {//注意isFlutterPage的实现
+      if (uniqueId != null) {
+        //注意isFlutterPage的实现
         _anonymousRoutes.remove(settings.name);
       }
     } else {

@@ -4,7 +4,8 @@ import '../common/route_manager.dart';
 import 'gridview_demo.dart';
 
 class NavigatorDemo extends StatelessWidget {
-  const NavigatorDemo({Key? key}) : super(key: key);
+  Map<String, dynamic>? data;
+  NavigatorDemo({this.data, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

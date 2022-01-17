@@ -10,6 +10,7 @@ import 'package:flutter_demo/demo/tabbar_pageview.dart';
 import 'package:flutter_engine/flutter_engine.dart';
 
 import 'demo/alignment_demo.dart';
+import 'demo/flow_demo.dart';
 import 'demo/network_demo.dart';
 import 'demo/gridview_demo.dart';
 import 'common/route_manager.dart';
@@ -71,10 +72,14 @@ class _MyHomePageState extends State<MyHomePage> {
     routes.add(RouteData('GridView', () => GridViewDemo()));
     routes.add(RouteData('Middle', () => NavigatorDemo()));
     routes.add(RouteData('Stack', () => StackDemo()));
+    routes.add(RouteData('Flow', () => FlowDemo()));
   }
 
   @override
   Widget build(BuildContext context) {
+    Map<String, dynamic> args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    var back = args['back'] as bool;
     Widget current = GridView.builder(
         padding: EdgeInsets.all(12),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -103,8 +108,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
+        leading: back
+            ? BackButton(
+                onPressed: () => BoostNavigator.instance.pop(),
+              )
+            : null,
         title: Text(widget.title),
-        leading: Text('xxxx'),
       ),
       body:
           current, // This trailing comma makes auto-formatting nicer for build methods.
