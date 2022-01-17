@@ -35,4 +35,21 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 
 
+## flutter_boost接入
+
+### 1、dart
+
+```dar
+///创建一个自定义的Binding，继承和with的关系如下，里面什么都不用写
+class CustomFlutterBinding extends WidgetsFlutterBinding with BoostFlutterBinding {}
+
+void main() {
+  ///这里的CustomFlutterBinding调用务必不可缺少，用于控制Boost状态的resume和pause
+  CustomFlutterBinding();
+  runApp(MyApp());
+}
+```
+
+
+
 ## [嵌入原生View-iOS](https://juejin.cn/post/6884954806692085768)

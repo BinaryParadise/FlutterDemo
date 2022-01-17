@@ -4,6 +4,7 @@ import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_demo/demo/expanded_demo.dart';
 import 'package:flutter_demo/demo/gridview_demo.dart';
 import 'package:flutter_demo/demo/navigator_demo.dart';
+import 'package:flutter_demo/demo/stack_demo.dart';
 import 'package:flutter_demo/demo/tabbar_pageview.dart';
 
 import 'package:flutter_engine/flutter_engine.dart';
@@ -69,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     routes.add(RouteData('Network', () => NetworkDemo()));
     routes.add(RouteData('GridView', () => GridViewDemo()));
     routes.add(RouteData('Middle', () => NavigatorDemo()));
+    routes.add(RouteData('Stack', () => StackDemo()));
   }
 
   @override
