@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Map<String, Object> params = new HashMap<>();
         params.put("string","a string");
-        params.put("bool", true);
+        params.put("back", true);
         params.put("int", 666);
         //Add some params if needed.
         if (v == mOpenNative) {
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new FlutterBoostActivity.CachedEngineIntentBuilder(FlutterBoostActivity.class)
                     .backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode.opaque)
                     .destroyEngineWithActivity(false)
-                    .url("flutter://middle")
+                    .url("flutter://home")
                     .urlParams(params)
                     .build(this);
             startActivityForResult(intent, REQUEST_CODE);

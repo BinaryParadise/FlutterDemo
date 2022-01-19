@@ -6,6 +6,7 @@ import 'package:flutter_demo/demo/gridview_demo.dart';
 import 'package:flutter_demo/demo/navigator_demo.dart';
 import 'package:flutter_demo/demo/stack_demo.dart';
 import 'package:flutter_demo/demo/tabbar_pageview.dart';
+import 'package:flutter_demo/demo/videoplayer_demo.dart';
 import 'package:flutter_demo/demo/wrap_demo.dart';
 
 import 'demo/alignment_demo.dart';
@@ -77,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
     routes.add(RouteData('Wrap', () => WrapDemo()));
     routes.add(RouteData('TextField', () => TextFieldDemo()));
     routes.add(RouteData('Future', () => const FutureDemo()));
+    routes.add(RouteData('VideoPlayer', () => const VideoPlayerDemo()));
   }
 
   @override

@@ -44,6 +44,7 @@ dependencies:
   json_annotation: ^4.4.0
   flutter_engine: ^0.0.2
   shared_preferences: ^2.0.0
+  video_player: ^2.2.11
   intro_segment:
     path: ./plugins/intro_segment
   time_sync:

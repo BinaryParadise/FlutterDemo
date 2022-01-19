@@ -20,6 +20,7 @@
     <application
         android:name="com.idlefish.flutterboost.example.MyApplication"
         android:label="flutter_boost_example"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name="com.idlefish.flutterboost.example.MainActivity"
