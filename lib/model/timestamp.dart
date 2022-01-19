@@ -15,4 +15,9 @@ class Timestamp {
       _$TimestampFromJson(json);
 
   Map<String, dynamic> toJson() => _$TimestampToJson(this);
+
+  @override
+  String toString() {
+    return data.toString();
+  }
 }

@@ -11,7 +11,7 @@ import Flutter
       window.makeKeyAndVisible()
       window.rootViewController = {
           let nav = UINavigationController(rootViewController: FirstViewController())
-          //nav.setNavigationBarHidden(true, animated: false)
+          nav.setNavigationBarHidden(true, animated: false)
           return nav
       }()
             

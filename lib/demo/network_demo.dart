@@ -25,6 +25,7 @@ class DioErrorInterceptor extends Interceptor {
 class _NetworkDemoState extends State<NetworkDemo> {
   Dio dio = Dio();
   bool fetching = false;
+  Result? _result;
 
   @override
   void initState() {
@@ -43,11 +44,10 @@ class _NetworkDemoState extends State<NetworkDemo> {
       });
       var response =
           await dio.get<Map>('rest/api3.do?api=mtop.common.getTimestamp');
+      var r = Timestamp.fromJson(response.data as Map<String, dynamic>);
       setState(() {
         fetching = false;
       });
-      var r = Timestamp.fromJson(response.data as Map<String, dynamic>);
-      print(r);
       return Result(0, r);
     } on DioError catch (e) {
       print(e);
@@ -61,11 +61,15 @@ class _NetworkDemoState extends State<NetworkDemo> {
     current = Center(
       child: fetching
           ? const CircularProgressIndicator()
-          : TextButton(
-              onPressed: () {
-                fetchData();
-              },
-              child: Text('execute()')),
+          : (_result == null
+              ? TextButton(
+                  onPressed: () {
+                    fetchData().then((value) => this.setState(() {
+                          _result = value;
+                        }));
+                  },
+                  child: Text('execute()'))
+              : Text((_result!.data as Timestamp).toString())),
     );
     current = Scaffold(
       appBar: AppBar(

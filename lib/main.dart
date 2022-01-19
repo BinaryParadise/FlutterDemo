@@ -8,13 +8,13 @@ import 'package:flutter_demo/demo/stack_demo.dart';
 import 'package:flutter_demo/demo/tabbar_pageview.dart';
 import 'package:flutter_demo/demo/wrap_demo.dart';
 
-import 'package:flutter_engine/flutter_engine.dart';
-
 import 'demo/alignment_demo.dart';
 import 'demo/flow_demo.dart';
 import 'demo/network_demo.dart';
 import 'demo/gridview_demo.dart';
 import 'common/route_manager.dart';
+import 'demo/textfield_demo.dart';
+import 'demo/future_demo.dart';
 
 void main() {
   MyFlutterBinding();
@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
   Widget appBuilder(Widget home) {
     return MaterialApp(
       home: home,
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xFFF2F4F6),
@@ -66,15 +65,18 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     routes.add(RouteData('Segment', () => TabbarPageViewPage()));
-    routes.add(RouteData('MainAxisAlignment', () => MainAlignmentDemo()));
-    routes.add(RouteData('CrossAxisAlignment', () => CrossAlignmentDemo()));
-    routes.add(RouteData('Expanded', () => ExpandedDemo()));
-    routes.add(RouteData('Network', () => NetworkDemo()));
-    routes.add(RouteData('GridView', () => GridViewDemo()));
-    routes.add(RouteData('Middle', () => NavigatorDemo()));
-    routes.add(RouteData('Stack', () => StackDemo()));
+    routes.add(RouteData('MainAxisAlignment', () => const MainAlignmentDemo()));
+    routes
+        .add(RouteData('CrossAxisAlignment', () => const CrossAlignmentDemo()));
+    routes.add(RouteData('Expanded', () => const ExpandedDemo()));
+    routes.add(RouteData('Network', () => const NetworkDemo()));
+    routes.add(RouteData('GridView', () => const GridViewDemo()));
+    routes.add(RouteData('Navigator', () => NavigatorDemo()));
+    routes.add(RouteData('Stack', () => const StackDemo()));
     routes.add(RouteData('Flow', () => FlowDemo()));
     routes.add(RouteData('Wrap', () => WrapDemo()));
+    routes.add(RouteData('TextField', () => TextFieldDemo()));
+    routes.add(RouteData('Future', () => const FutureDemo()));
   }
 
   @override
@@ -83,8 +85,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     var back = args['back'] as bool;
     Widget current = GridView.builder(
-        padding: EdgeInsets.all(12),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        padding: const EdgeInsets.all(12),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             mainAxisSpacing: 8,
             crossAxisSpacing: 8,
@@ -101,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     BoostNavigator.instance.pushWidget(item.child()),
                 child: Text(
                   item.title,
-                  style: TextStyle(fontSize: 15),
+                  style: const TextStyle(fontSize: 15),
                 )),
           );
         },

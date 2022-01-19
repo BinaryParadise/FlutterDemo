@@ -226,7 +226,7 @@ packages:
     source: hosted
     version: "0.0.2"
   flutter_lints:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_lints
       url: "https://pub.flutter-io.cn"
@@ -590,6 +590,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.4.2"
+  time_sync:
+    dependency: "direct main"
+    description:
+      path: "plugins/time_sync"
+      relative: true
+    source: path
+    version: "0.0.1+1"
   timing:
     dependency: transitive
     description:

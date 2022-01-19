@@ -36,7 +36,7 @@ class NavigatorDemo extends StatelessWidget {
     );
     current = Scaffold(
       appBar: AppBar(
-        title: Text('Native'),
+        title: Text('Navigator'),
       ),
       body: current,
     );

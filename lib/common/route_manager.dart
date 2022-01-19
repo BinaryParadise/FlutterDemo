@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_demo/demo/navigator_demo.dart';
 import 'package:flutter_demo/main.dart';
@@ -8,17 +7,24 @@ import 'package:flutter_demo/main.dart';
 final RouteManager routeManager = RouteManager._instance();
 
 class RouteManager {
-  Map<String, FlutterBoostRouteFactory> _routes = {
+  final Map<String, FlutterBoostRouteFactory> _routes = {
     'flutter://home': (settings, uniqueId) {
       return CupertinoPageRoute(
           settings: settings,
-          builder: (context) => MyHomePage(title: 'Flutter Demo'));
+          builder: (context) => const MyHomePage(title: 'Flutter Demo'));
     },
     'flutter://middle': (settings, uniqueId) {
       return CupertinoPageRoute(
           settings: settings,
           builder: (context) => NavigatorDemo(
                 data: settings.arguments as Map<String, dynamic>,
+              ));
+    },
+    'flutter://warmUpEngine': (settings, uniqueId) {
+      return CupertinoPageRoute(
+          settings: settings,
+          builder: (context) => Container(
+                child: const Text('warmUpEngine'),
               ));
     }
   };
@@ -60,7 +66,7 @@ extension RouteExtension on BoostNavigator {
           settings: settings, builder: (context) => widget);
     };
     var name = 'anonymous_route_${func.hashCode}';
-    print('打开匿名路由: $name');
+    print('打开匿名路由: $name -> $widget');
     routeManager._anonymousRoutes[name] = func;
     return push(name,
         arguments: arguments, withContainer: withContainer, opaque: opaque);

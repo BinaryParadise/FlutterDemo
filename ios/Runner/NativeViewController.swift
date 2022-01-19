@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import flutter_boost
 
-class NativeViewController: UIViewController {
+class NativeViewController: NavBarViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        view.backgroundColor = .white
+        navBar.title = "Native"
         
         let nativeBtn = UIButton(type: .custom)
         nativeBtn.layer.cornerRadius = 6
@@ -30,7 +31,6 @@ class NativeViewController: UIViewController {
         flutterBtn.setTitle("打开Flutter页面", for: .normal)
         view.addSubview(flutterBtn)
         flutterBtn.addTarget(self, action: #selector(openFlutter(sender:)), for: .touchUpInside)
-        
     }
     
     @IBAction func openNative(sender: Any) {
@@ -38,9 +38,15 @@ class NativeViewController: UIViewController {
     }
     
     @IBAction func openFlutter(sender: Any) {
-        FlutterBoost.instance().open("flutter://middle", arguments: [:]) { finished in
+        let options = FlutterBoostRouteOptions()
+        options.pageName = "flutter://middle"
+        options.onPageFinished = { dict in
             
         }
+        options.completion = { finished in
+            
+        }
+        FlutterBoost.instance().open(options)
     }
     
     override func viewDidAppear(_ animated: Bool) {

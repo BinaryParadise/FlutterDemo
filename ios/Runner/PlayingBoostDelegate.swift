@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Flutter
+import flutter_boost
 
 class PlayingBoostDelegate: NSObject, FlutterBoostDelegate {
     var navigationController: UINavigationController?
     var resultTable: [String: ([AnyHashable:Any]?)->Void] = [:]
-
+    
     init(nav: UINavigationController?) {
         navigationController = nav
     }
@@ -26,8 +28,7 @@ class PlayingBoostDelegate: NSObject, FlutterBoostDelegate {
         vc.setName(options.pageName, uniqueId: options.uniqueId, params: options.arguments,opaque: options.opaque)
                 
         //对这个页面设置结果
-        //resultTable[options.pageName] = options.onPageFinished;
-                
+        resultTable[options.pageName] = options.onPageFinished;
         navigationController?.pushViewController(vc, animated: true)
     }
     
