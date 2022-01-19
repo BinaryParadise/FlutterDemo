@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:intro_segment/intro_segment.dart';
 
 void main() {
@@ -16,10 +14,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  SegmentController _segmentController1 = SegmentController();
-  SegmentController _segmentController2 = SegmentController();
-  PageController _pageController1 = PageController();
-  PageController _pageController2 = PageController();
+  final SegmentController _segmentController1 = SegmentController();
+  final SegmentController _segmentController2 = SegmentController();
+  final PageController _pageController1 = PageController();
+  final PageController _pageController2 = PageController();
 
   @override
   void initState() {
@@ -27,12 +25,12 @@ class _MyAppState extends State<MyApp> {
 
     _segmentController1.addListener(() {
       _pageController1.animateToPage(_segmentController1.currentIndex,
-          duration: Duration(microseconds: 300), curve: Curves.easeInOut);
+          duration: const Duration(microseconds: 300), curve: Curves.easeInOut);
     });
 
     _segmentController2.addListener(() {
       _pageController2.animateToPage(_segmentController2.currentIndex,
-          duration: Duration(microseconds: 300), curve: Curves.easeInOut);
+          duration: const Duration(microseconds: 300), curve: Curves.easeInOut);
     });
   }
 
@@ -43,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         IntroSegment(
             controller: c1,
             datas: datas),
-        Container(
+        SizedBox(
           height: 200,
           child: PageView(
             children: [

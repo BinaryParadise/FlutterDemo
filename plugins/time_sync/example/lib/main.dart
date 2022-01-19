@@ -17,14 +17,26 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  String _time = '未校准';
+  String _time = "未校准";
 
   @override
   void initState() {
     super.initState();
-    // TODO: Android测试
     initPlatformState();
+
     _calibrateTime();
+  }
+
+  void _calibrateTime() {
+    TimeSync.calibrateTime.then((value) {
+      Timer.periodic(const Duration(milliseconds: 10), (timer) {
+        TimeSync.calibrateTime.then((value) => this.setState(() {
+              _time = DateTime.fromMillisecondsSinceEpoch(value)
+                  .toLocal()
+                  .toString();
+            }));
+      });
+    });
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -49,15 +61,6 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  _calibrateTime() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      TimeSync.calibrateTime.then((value) => setState(() {
-            _time =
-                DateTime.fromMillisecondsSinceEpoch(value).toLocal().toString();
-          }));
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -69,15 +72,20 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Running on: $_platformVersion\n'),
-              Text('校准时间: $_time')
+              Text(
+                'Running on: $_platformVersion\n',
+                style: TextStyle(color: Colors.grey),
+              ),
+              Text(
+                '本地时间: ${DateTime.now().toLocal().toString()}',
+                style: TextStyle(color: Colors.orange),
+              ),
+              SizedBox(
+                height: 6,
+              ),
+              Text('校准时间: $_time', style: TextStyle(color: Colors.green))
             ],
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-          },
-          child: const Icon(Icons.add),
         ),
       ),
     );

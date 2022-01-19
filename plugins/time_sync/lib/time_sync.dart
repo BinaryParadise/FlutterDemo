@@ -1,8 +1,3 @@
-// You have generated a new plugin project without
-// specifying the `--platforms` flag. A plugin project supports no platforms is generated.
-// To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-// directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -38,7 +33,7 @@ class TimeSync {
             as Map<String, dynamic>)['data']['t'] as String);
         prefs.setInt('_serverTime', time); //服务器时间
         prefs.setInt('_bootTime', btime); //设备启动经过的时间
-        serverTime = time + (ignoreDelay ? 0 : delta / 2) as int;
+        serverTime = time + (ignoreDelay ? 0 : delta / 2).toInt();
       } catch (e) {
         serverTime = DateTime.now().millisecondsSinceEpoch;
         print(e);
