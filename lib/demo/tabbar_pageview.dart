@@ -38,14 +38,7 @@ class TabbarPageViewPage extends StatelessWidget {
         print('切换page');
         controller.animateTo(page);
       },
-      children: [
-        ListViewDemo(
-          key: Key('d0'),
-        ),
-        ListViewDemo(
-          key: Key('d1'),
-        )
-      ],
+      children: [_PageViewItem(), _PageViewItem()],
     );
     current = Column(
       children: [current, Expanded(child: pageView)],
@@ -55,6 +48,21 @@ class TabbarPageViewPage extends StatelessWidget {
       appBar: AppBar(title: Text('TabBar+PageView')),
       body: current,
     );
+    return current;
+  }
+}
+
+class _PageViewItem extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Widget current = ListView.separated(
+        itemBuilder: (context, row) {
+          return Text('  $row');
+        },
+        separatorBuilder: (context, row) {
+          return Divider();
+        },
+        itemCount: 30);
     return current;
   }
 }

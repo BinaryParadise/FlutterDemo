@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intro_segment/animated_tabbar.dart';
 
 import 'package:intro_segment/intro_segment.dart';
 
@@ -18,6 +19,7 @@ class _MyAppState extends State<MyApp> {
   final SegmentController _segmentController2 = SegmentController();
   final PageController _pageController1 = PageController();
   final PageController _pageController2 = PageController();
+  final AnimatedTabBarController _controller = AnimatedTabBarController();
 
   @override
   void initState() {
@@ -38,9 +40,7 @@ class _MyAppState extends State<MyApp> {
       SegmentController c1, PageController c2, List<SMSegmentItem> datas) {
     return Column(
       children: [
-        IntroSegment(
-            controller: c1,
-            datas: datas),
+        IntroSegment(controller: c1, datas: datas),
         SizedBox(
           height: 200,
           child: PageView(
@@ -65,12 +65,17 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     Widget current = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         _eachRow(_segmentController1, _pageController1,
             [SMSegmentItem('Playing'), SMSegmentItem('InRoom')]),
         _eachRow(_segmentController2, _pageController2,
             [SMSegmentItem('Learning'), SMSegmentItem('Makeing')]),
+        Container(
+            color: Colors.white,
+            height: 50,
+            child: AnimatedTabBar(
+                tabs: [Text('已揽收1'), Text('已发出'), Text('派件中')],
+                controller: _controller))
       ],
     );
     return MaterialApp(

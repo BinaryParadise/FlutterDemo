@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
+import 'package:flutter_demo/demo/animated_demo.dart';
 import 'package:flutter_demo/demo/expanded_demo.dart';
 import 'package:flutter_demo/demo/gridview_demo.dart';
+import 'package:flutter_demo/demo/listview_demo.dart';
 import 'package:flutter_demo/demo/navigator_demo.dart';
 import 'package:flutter_demo/demo/stack_demo.dart';
 import 'package:flutter_demo/demo/tabbar_pageview.dart';
@@ -71,12 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
         .add(RouteData('CrossAxisAlignment', () => const CrossAlignmentDemo()));
     routes.add(RouteData('Expanded', () => const ExpandedDemo()));
     routes.add(RouteData('Network', () => const NetworkDemo()));
+    routes.add(RouteData('ListView', () => ListViewDemo()));
     routes.add(RouteData('GridView', () => const GridViewDemo()));
     routes.add(RouteData('Navigator', () => NavigatorDemo()));
     routes.add(RouteData('Stack', () => const StackDemo()));
     routes.add(RouteData('Flow', () => FlowDemo()));
     routes.add(RouteData('Wrap', () => WrapDemo()));
     routes.add(RouteData('TextField', () => TextFieldDemo()));
+    routes.add(RouteData('AnimatedBuilder', () => AnimatedDemo()));
     routes.add(RouteData('Future', () => const FutureDemo()));
     routes.add(RouteData('VideoPlayer', () => const VideoPlayerDemo()));
   }

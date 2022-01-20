@@ -8,10 +8,23 @@ class ListViewDemo extends StatefulWidget {
 }
 
 class _ListViewDemoState extends State<ListViewDemo> {
+  ScrollController _controller = ScrollController();
+  int count = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration(microseconds: 200), () {
+      _controller.jumpTo(_controller.position.maxScrollExtent);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget current = ListView.separated(
-        padding: EdgeInsets.fromLTRB(12, 8, 12, 28),
+        padding: EdgeInsets.fromLTRB(12, 8, 12, 50),
+        controller: _controller,
         itemBuilder: (context, row) {
           return Container(
             padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
@@ -26,10 +39,24 @@ class _ListViewDemoState extends State<ListViewDemo> {
             height: 8,
           );
         },
-        itemCount: 35);
+        itemCount: count);
+
+    current = Scaffold(
+      appBar: AppBar(
+        title: Text('ListView'),
+      ),
+      body: current,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            count++;
+          });
+        },
+        child: Icon(Icons.add),
+      ),
+    );
 
     current = Container(
-      color: const Color(0xFFF2F4F6),
       child: current,
     );
     return current;
