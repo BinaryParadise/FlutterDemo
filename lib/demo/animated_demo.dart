@@ -24,10 +24,9 @@ class AnimatedDemo extends StatelessWidget {
       body: current,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          RenderBox renderBox = gk.currentContext?.findRenderObject() as RenderBox;
-          if (renderBox != null) {
-            print('${renderBox!.size} ${renderBox.localToGlobal(Offset.zero)}');
-          }
+          RenderBox renderBox =
+              gk.currentContext?.findRenderObject() as RenderBox;
+          print('${renderBox.size} ${renderBox.localToGlobal(Offset.zero)}');
         },
         child: Icon(Icons.done),
       ),

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import flutter_boost
 
 class NativeViewController: NavBarViewController {
 
@@ -38,15 +37,7 @@ class NativeViewController: NavBarViewController {
     }
     
     @IBAction func openFlutter(sender: Any) {
-        let options = FlutterBoostRouteOptions()
-        options.pageName = "flutter://middle"
-        options.onPageFinished = { dict in
-            
-        }
-        options.completion = { finished in
-            
-        }
-        FlutterBoost.instance().open(options)
+        PlayingNavigator.pushFlutter("flutter://middle")
     }
     
     override func viewDidAppear(_ animated: Bool) {

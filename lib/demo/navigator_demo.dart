@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boost/flutter_boost.dart';
 import '../common/route_manager.dart';
 import 'gridview_demo.dart';
 
 class NavigatorDemo extends StatelessWidget {
-  Map<String, dynamic>? data;
+  Object? data;
   NavigatorDemo({this.data, Key? key}) : super(key: key);
 
   @override
@@ -15,28 +14,28 @@ class NavigatorDemo extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {
-              BoostNavigator.instance.push('native://middle');
+              Navigator.of(context).pushNamed('native://middle');
             },
-            child: Text('跳转Native'),
+            child: const Text('跳转Native'),
           ),
           TextButton(
             onPressed: () {
-              BoostNavigator.instance.push('flutter://middle');
+              Navigator.of(context).pushNamed('flutter://middle');
             },
-            child: Text('跳转Flutter'),
+            child: const Text('跳转Flutter'),
           ),
           TextButton(
             onPressed: () {
-              BoostNavigator.instance.pushWidget(NavigatorDemo());
+              Navigator.of(context).pushWidget(NavigatorDemo());
             },
-            child: Text('跳转匿名路由'),
+            child: const Text('跳转匿名路由'),
           )
         ],
       ),
     );
     current = Scaffold(
       appBar: AppBar(
-        title: Text('Navigator'),
+        title: const Text('Navigator'),
       ),
       body: current,
     );

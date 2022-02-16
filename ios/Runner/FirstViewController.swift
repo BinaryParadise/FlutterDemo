@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import flutter_boost
 
 class FirstViewController: NavBarViewController {
 
@@ -50,11 +49,12 @@ class FirstViewController: NavBarViewController {
     }
 
     @IBAction func openFlutter(sender: Any) {
+        PlayingNavigator.pushFlutter("/")
         //let rootVC = FBFlutterViewContainer(project: nil, initialRoute: "/", nibName: nil, bundle: nil)
         //rootVC.setName("/", uniqueId: "0", params: nil, opaque: true)
-        FlutterBoost.instance().open("flutter://home", arguments: ["back": true]) { finished in
-            
-        }
+//        FlutterBoost.instance().open("flutter://home", arguments: ["back": true]) { finished in
+//
+//        }
     }
     
     @IBAction func openNative(sender: Any) {
@@ -63,14 +63,14 @@ class FirstViewController: NavBarViewController {
     
     @IBAction func appendFlutter(sender: Any) {
         // 可加速首次打开flutter页面
-        let vc = FBFlutterViewContainer()!
-        vc.setName("flutter://warmUpEngine", uniqueId: UUID().uuidString, params: [:], opaque: false)
-        view.addSubview(vc.view)
-        vc.view.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.snp.bottomMargin).offset(-20)
-            make.height.equalTo(50)
-            make.width.equalToSuperview().multipliedBy(0.7)
-        }
+//        let vc = FBFlutterViewContainer()!
+//        vc.setName("flutter://warmUpEngine", uniqueId: UUID().uuidString, params: [:], opaque: false)
+//        view.addSubview(vc.view)
+//        vc.view.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.bottom.equalTo(view.snp.bottomMargin).offset(-20)
+//            make.height.equalTo(50)
+//            make.width.equalToSuperview().multipliedBy(0.7)
+//        }
     }
 }

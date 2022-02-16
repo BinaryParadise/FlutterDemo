@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boost/flutter_boost.dart';
 
 /// 导航栏复用组件
 class AppNav {
@@ -27,7 +26,7 @@ class AppNav {
   static Widget backButton() {
     Widget current = IconButton(
       onPressed: () {
-        BoostNavigator.instance.pop();
+        // TODO: Navigator.of(context).instance.pop();
       },
       iconSize: 24,
       icon: Image.asset('images/common/ic_nav_backarrow@3x.png'),

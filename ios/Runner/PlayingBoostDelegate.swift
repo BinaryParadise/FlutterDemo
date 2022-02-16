@@ -7,29 +7,22 @@
 
 import UIKit
 import Flutter
-import flutter_boost
 
-class PlayingBoostDelegate: NSObject, FlutterBoostDelegate {
+class PlayingNavigator: NSObject {
+    static var shared = PlayingNavigator()
     var navigationController: UINavigationController?
     var resultTable: [String: ([AnyHashable:Any]?)->Void] = [:]
+    weak var engine: FlutterEngine!
     
-    init(nav: UINavigationController?) {
-        navigationController = nav
+    static func pushFlutter(_ route: String) {
+        let vc = FlutterContainerViewController(engine: shared.engine, nibName: nil, bundle: nil)
+        shared.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushNativeRoute(_ pageName: String!, arguments: [AnyHashable : Any]!) {
+    /*func pushNativeRoute(_ pageName: String!, arguments: [AnyHashable : Any]!) {
         if pageName == "native://middle" {
             navigationController?.pushViewController(NativeViewController(), animated: true)
         }
-    }
-    
-    func pushFlutterRoute(_ options: FlutterBoostRouteOptions!) {
-        let vc = FBFlutterViewContainer()!
-        vc.setName(options.pageName, uniqueId: options.uniqueId, params: options.arguments,opaque: options.opaque)
-                
-        //对这个页面设置结果
-        resultTable[options.pageName] = options.onPageFinished;
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     func popRoute(_ options: FlutterBoostRouteOptions!) {
@@ -59,5 +52,5 @@ class PlayingBoostDelegate: NSObject, FlutterBoostDelegate {
             onPageFinshed(options.arguments)
             resultTable.removeValue(forKey: options.pageName)
         }
-    }
+    }*/
 }

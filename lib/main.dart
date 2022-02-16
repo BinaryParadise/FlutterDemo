@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boost/flutter_boost.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_demo/demo/animated_demo.dart';
 import 'package:flutter_demo/demo/expanded_demo.dart';
 import 'package:flutter_demo/demo/gridview_demo.dart';
@@ -20,11 +20,8 @@ import 'demo/textfield_demo.dart';
 import 'demo/future_demo.dart';
 
 void main() {
-  MyFlutterBinding();
   runApp(const MyApp());
 }
-
-class MyFlutterBinding extends WidgetsFlutterBinding with BoostFlutterBinding {}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -32,23 +29,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return FlutterBoostApp(
-      routeManager.routeFactory,
-      appBuilder: appBuilder,
-    );
-  }
-
-  Widget appBuilder(Widget home) {
     return MaterialApp(
-      home: home,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xFFF2F4F6),
         scaffoldBackgroundColor: const Color(0xFFF2F4F6),
       ),
-      builder: (context, child) {
-        return home;
-      },
+      initialRoute: 'flutter://home',
+      onGenerateRoute: (settings) =>
+          routeManager.routeFactory(settings, 'uniqueId'),
     );
   }
 }
@@ -87,9 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, dynamic> args =
-        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    var back = args['back'] as bool;
+    // Map<String, dynamic> args = (ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    var back = true;
     Widget current = GridView.builder(
         padding: const EdgeInsets.all(12),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -105,8 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 borderRadius: BorderRadius.circular(4),
                 color: Colors.white.withOpacity(0.8)),
             child: TextButton(
-                onPressed: () =>
-                    BoostNavigator.instance.pushWidget(item.child()),
+                onPressed: () => Navigator.of(context).pushWidget(item.child()),
                 child: Text(
                   item.title,
                   style: const TextStyle(fontSize: 15),
@@ -120,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         leading: back
             ? BackButton(
-                onPressed: () => BoostNavigator.instance.pop(),
+                onPressed: () => SystemNavigator.pop(animated: true),
               )
             : null,
         title: Text(widget.title),

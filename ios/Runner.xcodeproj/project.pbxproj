@@ -15,6 +15,7 @@
 		C92751E5279572A400AA5299 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92751E4279572A400AA5299 /* NavBarView.swift */; };
 		C92751E7279575C500AA5299 /* NavBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92751E6279575C500AA5299 /* NavBarViewController.swift */; };
 		C95D2DE3D34FDFBEF3F1D5E5 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70921471F634BB421C129F5F /* Pods_Runner.framework */; };
+		C983109727BCCC59004CAC89 /* FlutterContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983109627BCCC59004CAC89 /* FlutterContainerViewController.swift */; };
 		C9A972E32790075800493684 /* PlayingBoostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A972E22790075800493684 /* PlayingBoostDelegate.swift */; };
 		C9ACE30927901315009E89D8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACE30827901315009E89D8 /* FirstViewController.swift */; };
 		C9ACE30B27902847009E89D8 /* NativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACE30A27902847009E89D8 /* NativeViewController.swift */; };
@@ -51,6 +52,7 @@
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92751E4279572A400AA5299 /* NavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
 		C92751E6279575C500AA5299 /* NavBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarViewController.swift; sourceTree = "<group>"; };
+		C983109627BCCC59004CAC89 /* FlutterContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterContainerViewController.swift; sourceTree = "<group>"; };
 		C9A972E22790075800493684 /* PlayingBoostDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingBoostDelegate.swift; sourceTree = "<group>"; };
 		C9ACE30827901315009E89D8 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		C9ACE30A27902847009E89D8 /* NativeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
 				C92751E4279572A400AA5299 /* NavBarView.swift */,
 				C92751E6279575C500AA5299 /* NavBarViewController.swift */,
+				C983109627BCCC59004CAC89 /* FlutterContainerViewController.swift */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				C9A972E32790075800493684 /* PlayingBoostDelegate.swift in Sources */,
 				C92751E5279572A400AA5299 /* NavBarView.swift in Sources */,
 				C9ACE30927901315009E89D8 /* FirstViewController.swift in Sources */,
+				C983109727BCCC59004CAC89 /* FlutterContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

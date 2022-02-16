@@ -223,15 +223,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_boost:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: "v3.0-null-safety-preview.17"
-      resolved-ref: "515892282fcf84199812be24b0a0ba6809b72c0c"
-      url: "https://github.com/alibaba/flutter_boost.git"
-    source: git
-    version: "3.0.0"
   flutter_engine:
     dependency: "direct main"
     description:

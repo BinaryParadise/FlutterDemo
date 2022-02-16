@@ -31,10 +31,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_boost:
-    git:
-      url: 'https://github.com/alibaba/flutter_boost.git'
-      ref: 'v3.0-null-safety-preview.17'
   flutter_picker: ^2.0.2
   fluttertoast: ^8.0.8
   # one_context: ^1.1.1
