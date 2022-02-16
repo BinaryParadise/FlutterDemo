@@ -33,6 +33,18 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 | package      | dart组件              |
 | plugin       | flutter插件           |
 
+## 创建项目
+
+```bash
+# 在当前目录创建插件项目
+flutter create -t plugin -a java .
+
+# 添加ios平台
+flutter create -t plugin --platforms ios .
+# 添加Android平台(java语言)
+flutter create -t plugin --platforms android -a java .
+```
+
 
 
 ## flutter_boost接入
@@ -53,3 +65,39 @@ void main() {
 
 
 ## [嵌入原生View-iOS](https://juejin.cn/post/6884954806692085768)
+
+## 发布到pub.dev
+
+```bash
+flutter pub publish --server=https://pub.dartlang.org
+```
+
+## [Flutter Engine调试](https://juejin.cn/post/6989063428706926605)
+
+### 1、获取源码
+```bash
+# 创建目录
+mkdir flutter_engine
+gclient config .
+# 修改.gclient内容
+ {
+    "name": "src/flutter",
+    "url": "git@github.com:flutter/engine.git",
+}
+```
+
+~设置终端代理，否则*chrome-infra-packages.appspot.com*不通~
+
+```bash
+export http_proxy=http://127.0.0.1:1087;
+export https_proxy=http://127.0.0.1:1087;
+```
+
+可能原因: `git`未加入到代理app⚠️
+
+### 2、切换源码到本地flutter sdk的engine版本
+
+```bash
+cat /usr/local/flutter/bin/internal/engine.version
+git reset --hard xxxx
+```
