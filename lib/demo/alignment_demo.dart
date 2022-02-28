@@ -11,20 +11,22 @@ class MainAlignmentDemo extends StatelessWidget {
     List<Widget> mainRows = [];
 
     mainRows.add(Row(children: [
-      Text('空白区域示例→'),
-      SizedBox(
+      const Text('空白区域示例→'),
+      const SizedBox(
         width: 8,
       ),
-      Text('             ').fill(color: Colors.deepPurple.withOpacity(0.5))
+      const Text('             ')
+          .fill(color: Colors.deepPurple.withOpacity(0.5))
     ]));
 
-    mainRows.add(SizedBox(
+    mainRows.add(const SizedBox(
       height: 20,
     ));
 
-    mainRows.add(Text('MainAxisAlignment: 主轴布局').fill(color: Colors.orange));
+    mainRows
+        .add(const Text('MainAxisAlignment: 主轴布局').fill(color: Colors.orange));
 
-    mainRows.add(SizedBox(
+    mainRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -34,7 +36,7 @@ class MainAlignmentDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
     ));
 
-    mainRows.add(SizedBox(
+    mainRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -44,7 +46,7 @@ class MainAlignmentDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
     ));
 
-    mainRows.add(SizedBox(
+    mainRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -54,7 +56,7 @@ class MainAlignmentDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
     ));
 
-    mainRows.add(SizedBox(
+    mainRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -64,7 +66,7 @@ class MainAlignmentDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
     ));
 
-    mainRows.add(SizedBox(
+    mainRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -74,7 +76,7 @@ class MainAlignmentDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
     ));
 
-    mainRows.add(SizedBox(
+    mainRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -90,7 +92,7 @@ class MainAlignmentDemo extends StatelessWidget {
 
     current = Scaffold(
       appBar: AppBar(
-        title: Text('主轴布局方式'),
+        title: const Text('主轴布局方式'),
       ),
       body: current,
     );
@@ -108,22 +110,23 @@ class CrossAlignmentDemo extends StatelessWidget {
     List<Widget> crossRows = [];
 
     crossRows.add(Row(children: [
-      Text('空白区域示例→'),
-      SizedBox(
+      const Text('空白区域示例→'),
+      const SizedBox(
         width: 8,
       ),
-      Text('             ').fill(color: Colors.deepPurple.withOpacity(0.5))
+      const Text('             ')
+          .fill(color: Colors.deepPurple.withOpacity(0.5))
     ]));
 
-    crossRows.add(SizedBox(
+    crossRows.add(const SizedBox(
       height: 30,
     ));
 
     // 以下是副轴
-    crossRows
-        .add(Text('CrossAxisAlignment: 副轴布局').fill(color: Colors.deepOrange));
+    crossRows.add(
+        const Text('CrossAxisAlignment: 副轴布局').fill(color: Colors.deepOrange));
 
-    crossRows.add(SizedBox(
+    crossRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -133,7 +136,7 @@ class CrossAlignmentDemo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
     ));
 
-    crossRows.add(SizedBox(
+    crossRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -143,7 +146,7 @@ class CrossAlignmentDemo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
     ));
 
-    crossRows.add(SizedBox(
+    crossRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -153,7 +156,7 @@ class CrossAlignmentDemo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
     ));
 
-    crossRows.add(SizedBox(
+    crossRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -163,7 +166,7 @@ class CrossAlignmentDemo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
     ));
 
-    crossRows.add(SizedBox(
+    crossRows.add(const SizedBox(
       height: 20,
     ));
 
@@ -178,7 +181,7 @@ class CrossAlignmentDemo extends StatelessWidget {
 
     current = Scaffold(
       appBar: AppBar(
-        title: Text('副轴布局方式'),
+        title: const Text('副轴布局方式'),
       ),
       body: current,
     );

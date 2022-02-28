@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_demo/demo/navigator_demo.dart';
 import 'package:flutter_demo/main.dart';
 
@@ -24,12 +23,9 @@ class RouteManager {
     'flutter://warmUpEngine': (settings, uniqueId) {
       return CupertinoPageRoute(
           settings: settings,
-          builder: (context) => Container(
-                child: const Text('warmUpEngine'),
-              ));
+          builder: (context) => const Text('warmUpEngine'));
     }
   };
-  Map<String, FlutterBoostRouteFactory> _anonymousRoutes = {};
 
   RouteManager._instance();
 

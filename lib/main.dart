@@ -1,26 +1,35 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_demo/demo/animated_demo.dart';
 import 'package:flutter_demo/demo/expanded_demo.dart';
 import 'package:flutter_demo/demo/gridview_demo.dart';
+import 'package:flutter_demo/demo/image_demo.dart';
 import 'package:flutter_demo/demo/listview_demo.dart';
 import 'package:flutter_demo/demo/navigator_demo.dart';
+import 'package:flutter_demo/demo/sliverAppBar_demo.dart';
 import 'package:flutter_demo/demo/stack_demo.dart';
 import 'package:flutter_demo/demo/tabbar_pageview.dart';
 import 'package:flutter_demo/demo/videoplayer_demo.dart';
 import 'package:flutter_demo/demo/wrap_demo.dart';
+import 'package:provider/provider.dart';
 
 import 'demo/alignment_demo.dart';
 import 'demo/flow_demo.dart';
 import 'demo/network_demo.dart';
 import 'demo/gridview_demo.dart';
 import 'common/route_manager.dart';
+import 'demo/notifier_demo.dart';
+import 'demo/richtext_demo.dart';
 import 'demo/textfield_demo.dart';
 import 'demo/future_demo.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => Counter(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -72,6 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
     routes.add(RouteData('AnimatedBuilder', () => AnimatedDemo()));
     routes.add(RouteData('Future', () => const FutureDemo()));
     routes.add(RouteData('VideoPlayer', () => const VideoPlayerDemo()));
+    routes.add(RouteData('Image', () => const ImageDemo()));
+    routes.add(RouteData('RichText', () => const RichTextDemo()));
+    routes.add(RouteData('SliverAppBar', () => const SliverAppBarDemo()));
+    routes.add(RouteData('Notifier', () => const NotifierDemo()));
   }
 
   @override
